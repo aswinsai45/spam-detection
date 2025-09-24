@@ -68,7 +68,9 @@ export default function Hero({ onSubmit, result, loading, error }) {
         </form>
       </div>
       <div className="mt-10 text-sm text-gray-400">
-        <span className="italic">Powered by AI · Built with Tailwind CSS</span>
+        <span className="italic">
+          Catch spam messages before they reach your inbox!
+        </span>
       </div>
     </div>
   );
