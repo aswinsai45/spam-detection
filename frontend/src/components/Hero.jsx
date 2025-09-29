@@ -7,17 +7,17 @@ export default function Hero({ onSubmit, result, loading, error }) {
     e.preventDefault();
     if (message.trim()) {
       onSubmit(message);
-      setMessage("");
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-white to-purple-200">
-      <div className="backdrop-blur-2xl bg-white/70 shadow-2xl border border-blue-100 rounded-3xl px-10 py-12 w-full max-w-md transition-all duration-200">
-        <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-500 mb-8 text-center drop-shadow-md">
+    // Main container
+    <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gradient-to-br from-blue-100 via-white to-purple-200">
+      <div className="backdrop-blur-2xl bg-white/70 shadow-2xl border border-blue-100 rounded-3xl w-full max-w-md transition-all duration-200 p-6 sm:px-10 sm:py-12">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-500 mb-6 sm:mb-8 text-center drop-shadow-md">
           📩 Spam Detector
         </h1>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-5">
           <input
             type="text"
             value={message}
@@ -40,7 +40,8 @@ export default function Hero({ onSubmit, result, loading, error }) {
           </button>
 
           {/* Feedback */}
-          <div className="h-14">
+
+          <div className="min-h-[3.5rem] mt-2">
             {loading && (
               <div className="p-3 rounded-xl text-center text-blue-500 font-semibold animate-pulse">
                 Analyzing message...
@@ -55,7 +56,7 @@ export default function Hero({ onSubmit, result, loading, error }) {
 
             {!loading && result && (
               <div
-                className={`p-3 rounded-xl text-center text-lg font-semibold border shadow transition-all duration-200 ${
+                className={`p-3 rounded-xl text-center text-base sm:text-lg font-semibold border shadow transition-all duration-200 ${
                   result === "spam"
                     ? "bg-red-100 text-red-600 border-red-300"
                     : "bg-green-100 text-green-600 border-green-300"
@@ -66,11 +67,6 @@ export default function Hero({ onSubmit, result, loading, error }) {
             )}
           </div>
         </form>
-      </div>
-      <div className="mt-10 text-sm text-gray-400">
-        <span className="italic">
-          Catch spam messages before they reach your inbox!
-        </span>
       </div>
     </div>
   );
